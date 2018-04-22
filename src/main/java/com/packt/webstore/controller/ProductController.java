@@ -18,7 +18,7 @@ public class ProductController {
 		iphone.setCategory("Smarth Phone");
 		iphone.setManufacturer("Apple");
 		iphone.setUnitsInOrder(1000);
-		model.addAttribute("product", iphone);
+		model.addAttribute("p", iphone);
 		return "products";
 	}
 }
