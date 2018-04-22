@@ -42,4 +42,21 @@ public class InMemoryProductRepository implements ProductRepository {
 		return listOfProducts;
 	}
 
+	public Product getProductById(String productId) {
+		Product productById = null;
+		
+		for (Product p : listOfProducts) {
+			if (p != null && p.getProductId() != null && p.getProductId().equals(productId)) {
+				productById = p;
+				break;
+			}
+		}
+		
+		if (productById == null) {
+			throw new IllegalArgumentException("No products found with the product id: "+ productId);
+		}
+		
+		return productById;
+	}
+
 }
