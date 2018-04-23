@@ -21,21 +21,35 @@ public class InMemoryProductRepository implements ProductRepository {
 		p1.setManufacturer("Apple");
 		p1.setUnitsInStock(1000);
 		
-		Product p2 = new Product("2", "Dell Inspirion", new BigDecimal(700));
-		p2.setDescription("Dell Inspiron 14-inch laptop (Black)...");
-		p2.setCategory("Laptop");
-		p2.setManufacturer("Dell");
-		p2.setUnitsInStock(950);
+		Product p2 = new Product("2", "iPhone 6s", new BigDecimal(500));
+		p2.setDescription("Apple iPhone 6s smartphone with 5.50-inch...");
+		p2.setCategory("Smarth Phone");
+		p2.setManufacturer("Apple");
+		p2.setUnitsInStock(900);
 		
-		Product p3 = new Product("3", "Nexus 7", new BigDecimal(300));
-		p3.setDescription("Google Nexus 7 is the lightest 7 inch...");
-		p3.setCategory("Tablet");
-		p3.setManufacturer("Google");
-		p3.setUnitsInStock(800);
+		Product p3 = new Product("3", "Dell Inspirion", new BigDecimal(700));
+		p3.setDescription("Dell Inspiron 14-inch laptop (Black)...");
+		p3.setCategory("Laptop");
+		p3.setManufacturer("Dell");
+		p3.setUnitsInStock(950);
+		
+		Product p4 = new Product("4", "Dell Inspirion Ultra", new BigDecimal(700));
+		p4.setDescription("Dell Inspiron 15-inch laptop (Black)...");
+		p4.setCategory("Laptop");
+		p4.setManufacturer("Dell");
+		p4.setUnitsInStock(650);
+		
+		Product p5 = new Product("5", "Nexus 7", new BigDecimal(300));
+		p5.setDescription("Google Nexus 7 is the lightest 7 inch...");
+		p5.setCategory("Tablet");
+		p5.setManufacturer("Google");
+		p5.setUnitsInStock(800);
 		
 		listOfProducts.add(p1);
 		listOfProducts.add(p2);
 		listOfProducts.add(p3);
+		listOfProducts.add(p4);
+		listOfProducts.add(p5);
 	}
 	
 	public List<Product> getAllProducts() {
@@ -57,6 +71,18 @@ public class InMemoryProductRepository implements ProductRepository {
 		}
 		
 		return productById;
+	}
+
+	public List<Product> getProductByCategory(String category) {
+		List<Product> productsByCategory = new ArrayList<Product>();
+		
+		for(Product p : listOfProducts) {
+			if (category.equalsIgnoreCase(p.getCategory())) {
+				productsByCategory.add(p);
+			}
+		}
+		
+		return productsByCategory;
 	}
 
 }
