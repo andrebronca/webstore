@@ -44,8 +44,7 @@ public class ProductController {
 	@RequestMapping("/filter/{ByCriteria}")
 	public String getProductsByFilter(
 			@MatrixVariable(pathVar="ByCriteria") Map<String, List<String>> filterParams, 
-			Model model ) 
-	{
+			Model model ) {
 		model.addAttribute("products", productService.getProductsByFilter(filterParams));
 		return "products";
 	}
@@ -63,5 +62,11 @@ public class ProductController {
 	// webStore/products/product?category=laptop&price=700
 	//ex. public String getProducts(@RequestParam String category, @RequestParam String price){}
 	
-	
+	@RequestMapping("/tablet/{price}")
+	public String filterProducts(
+			@MatrixVariable(pathVar="price") Map<String, List<String>> filterParams,
+			Model model ) {
+		model.addAttribute("products", productService.getProductsByPriceFilter(filterParams));
+		return "products";
+	}
 }

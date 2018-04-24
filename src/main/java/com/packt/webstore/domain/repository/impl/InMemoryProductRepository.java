@@ -87,6 +87,18 @@ public class InMemoryProductRepository implements ProductRepository {
 		
 		return productsByCategory;
 	}
+	
+	public List<Product> getProductsByManufacturer(String manufacturer) {
+		List<Product> productsByManufacturer = new ArrayList<Product>();
+		
+		for(Product p : listOfProducts) {
+			if (manufacturer.equalsIgnoreCase(p.getManufacturer())) {
+				productsByManufacturer.add(p);
+			}
+		}
+		
+		return productsByManufacturer;
+	}
 
 	public Set<Product> getProductsByFilter(Map<String, List<String>> filterParams) {
 		Set<Product> produtctsByBrand = new HashSet<Product>();
@@ -111,8 +123,49 @@ public class InMemoryProductRepository implements ProductRepository {
 		}
 		
 		productsByCategory.retainAll(produtctsByBrand);
-		
 		return productsByCategory;
 	}
+
+	public Set<Product> getProductsByPriceFilter(Map<String, List<String>> filterParams) {
+		Set<Product> productsByManufacturer = new HashSet<Product>();
+		Set<Product> productsByManufacturerLowAndHigh = new HashSet<Product>();
+		Set<Product> productsByPriceLow = new HashSet<Product>();
+		Set<Product> productsByPriceLowAndHigh = new HashSet<Product>();
+		
+		Set<String> criterias = filterParams.keySet();
+		
+		if (criterias.contains("manufacturer")) {
+			for (String manufacturer : filterParams.get("manufacturer")) {
+				productsByManufacturer.addAll(this.getProductsByManufacturer(manufacturer));
+			}
+		}
+		
+		//temporary, I study other form to resolve it in next days. For hour I need to work 
+		//first steps to resolve. Refactoring is necessary
+		if (criterias.contains("low")) {
+			for (String p_low : filterParams.get("low")) {
+				for (Product p : productsByManufacturer) {
+					Integer price_low = new Integer(p_low);	//for hour it's type Integer
+					if (p.getUnitPrice().intValue() >= price_low ) {
+						productsByPriceLow.add(p);
+					}
+				}
+			}
+			
+			for (String p_high : filterParams.get("high")) {
+				for (Product p : productsByPriceLow) {		//filter
+					Integer price_high = new Integer(p_high);
+					if (p.getUnitPrice().intValue() <= price_high) {
+						productsByPriceLowAndHigh.add(p);		//It have price between low and high value filter
+					}
+				}
+			}
+		}
+		
+		productsByManufacturer.retainAll(productsByPriceLowAndHigh);
+		return productsByManufacturer;
+	}
+
+	
 
 }
