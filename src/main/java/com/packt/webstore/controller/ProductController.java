@@ -1,11 +1,19 @@
 package com.packt.webstore.controller;
 
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.MatrixVariable;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -81,8 +89,22 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="/add", method = RequestMethod.POST)
-	public String processAddNewProductForm(@ModelAttribute("newProduct") Product newProduct) {
+	public String processAddNewProductForm(@ModelAttribute("newProduct") Product newProduct, 
+			BindingResult result) {
+		String[] supressedFields = result.getSuppressedFields();	//fields in: initialiseBinder()
+		if (supressedFields.length > 0) {
+			throw new RuntimeException("Attempting to bind disallowed fields: "
+					+ StringUtils.arrayToCommaDelimitedString(supressedFields));
+		}
 		productService.addProduct(newProduct);
 		return "redirect:/products";
+	}
+	
+	@InitBinder
+	public void initialiseBinder(WebDataBinder binder) {
+//		DateFormat dateFormat = new SimpleDateFormat("MMM d, YYYY");
+//		CustomDateEditor orderDateEditor = new CustomDateEditor(dateFormat, true);
+//		binder.registerCustomEditor(Date.class, orderDateEditor);
+		binder.setDisallowedFields("unitsInOrder", "discontinued");
 	}
 }

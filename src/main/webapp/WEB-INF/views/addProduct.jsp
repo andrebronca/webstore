@@ -65,12 +65,7 @@
 					</div>
 				</div>
 				
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="unitsInOrder">Units In Order</label>
-					<div class="col-lg-10">
-						<f:input path="unitsInOrder" id="unitsInOrder" type="text" />
-					</div>
-				</div>
+				
 				
 				<div class="form-group">
 					<label class="control-label col-lg-2" for="description">Description</label>
@@ -79,12 +74,7 @@
 					</div>
 				</div>
 				
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="discontinued">Discontinued</label>
-					<div class="col-lg-10">
-						<f:checkbox path="discontinued" id="discontinued"/>
-					</div>
-				</div>
+				
 				
 				<div class="form-group">
 					<label class="control-label col-lg-2" for="condition">Condition</label>
