@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -28,6 +29,11 @@
 							<p>${p.description}</p>
 							<p>${p.unitPrice} USD</p>
 							<p>Available ${p.unitsInStock} units in stock</p>
+							<p>
+								<a href="<s:url value="/products/product?id=${ p.productId }" />" class="btn btn-primary">
+								<span class="glyphicon-info-sign glyphicon" ></span> Details
+								</a>
+							</p>
 						</div>
 					</div>
 				</div>
