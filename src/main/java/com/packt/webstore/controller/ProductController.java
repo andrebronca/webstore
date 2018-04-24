@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.MatrixVariable;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.packt.webstore.service.ProductService;
@@ -49,5 +50,17 @@ public class ProductController {
 		return "products";
 	}
 	
+	@RequestMapping("/product")
+	public String getProductById(@RequestParam("id") String productId, Model model) {
+		model.addAttribute("product", productService.getProductById(productId));
+		return "product";
+	}
+	
+	//para passar mais parametros para serem recuperados no GET
+	//obs. quando o parametro na URI é o mesmo que o nome da variável, não é necessário especificar o nome
+	//ex. nomes diferentes: @RequestParam("id") String productID	
+	//ex. nomes iguais: @RequestParam String id					- significa que na URI terá o parametro: id
+	// webStore/products/product?category=laptop&price=700
+	//ex. public String getProducts(@RequestParam String category, @RequestParam String price){}
 	
 }
