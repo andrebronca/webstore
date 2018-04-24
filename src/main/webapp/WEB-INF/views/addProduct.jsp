@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -24,7 +25,9 @@
 			<fieldset>
 				<legend>Add new Product</legend>
 				<div class="form-group">
-					<label class="control-label col-sd-2 col-md-3 col-lg-2" for="productId">Product Id</label>
+					<label class="control-label col-sd-2 col-md-3 col-lg-2" for="productId">
+					<s:message code="addProduct.form.productId.label" />
+					</label>
 					<div class="col-sd-10 col-md-9 col-lg-10">
 						<f:input path="productId" id="productId" type="text" class="f:input-large"/>
 					</div>
