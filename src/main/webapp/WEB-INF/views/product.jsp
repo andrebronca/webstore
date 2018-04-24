@@ -21,6 +21,9 @@
 	<section class="container">
 		<div class="row">
 			<div class="col-md-5">
+				<img src='<c:url value="/resource/images/prod_cod_${product.productId}.png" />' alt="imagem" style="width:100%" />
+			</div>
+			<div class="col-md-5">
 				<h3>${ product.name }</h3>
 				<p>${ product.description }</p>
 				<p>
@@ -34,9 +37,10 @@
 					<a href="#" class="btn btn-warning btn-large">
 						<span class="glyphicon-shopping-cart glyphicon"></span>
 						Order now
-						<a href="<s:url value="/products" />" class="btn btn-default">
-							<span class="glyphicon glyphicon-hand-left"></span> back
-						</a>
+					</a>
+					<br /><br />
+					<a href="<s:url value="/products" />" class="btn btn-default">
+						<span class="glyphicon glyphicon-hand-left"></span> back
 					</a>
 				</p>
 			</div>
