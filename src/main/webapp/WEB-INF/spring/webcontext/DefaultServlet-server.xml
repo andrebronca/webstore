@@ -28,6 +28,8 @@
 		<property name="maxUploadSize" value="10240000"/> <!-- 10MB  -->
 	</bean>
 	
+<!-- 	
+	Não está funcionando, não achei solução, deixar desativado. Nem o código do livro funciona.
 	<bean class= "org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
 		<property name="defaultViews">
 			<list>
@@ -40,7 +42,7 @@
 	<bean id="jsonView"	class= "org.springframework.web.servlet.view.json.MappingJacksonJsonView">
 		<property name="prettyPrint" value="true"/>
 	</bean>
-	<!-- 
+
 	<bean id="xmlView" class= "org.springframework.web.servlet.view.xml.MarshallingView">
 		<constructor-arg>
 			<bean class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
@@ -52,17 +54,5 @@
 			</bean>
 		</constructor-arg>
 	</bean> -->
-	
-	<bean id="xmlView" class="org.springframework.web.servlet.view.xml.MarshallingView">
-		<constructor-arg>
-			<bean class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
-			   <property name="classesToBeBound">
-				<list>
-				   <value>com.packt.webstore.domain.Product</value>
-				</list>
-			   </property>
-			</bean>
-		</constructor-arg>
-	</bean>
 	
 </beans>

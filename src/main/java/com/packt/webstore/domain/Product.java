@@ -2,10 +2,6 @@ package com.packt.webstore.domain;
 
 import java.math.BigDecimal;
 
-import javax.management.MXBean;
-
-import org.codehaus.jackson.annotate.JsonIgnore;
-
 import org.springframework.web.multipart.MultipartFile;
 
 
@@ -21,7 +17,6 @@ public class Product {
 	private boolean discontinued;
 	private String condition;
 	
-	@JsonIgnore
 	private MultipartFile productImage;
 	
 	public static final String PREFIX_IMAGE_NAME = "prod_cod_";
