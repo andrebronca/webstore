@@ -1,0 +1,17 @@
+/Users/andrerbronca/SpringToolSuite_Workspace/webstore/src/main/java/com/packt/webstore/domain/repository/ProductRepository.java
+/Users/andrerbronca/SpringToolSuite_Workspace/webstore/src/main/java/com/packt/webstore/domain/Customer.java
+/Users/andrerbronca/SpringToolSuite_Workspace/webstore/src/main/java/com/packt/webstore/service/impl/OrderServiceImpl.java
+/Users/andrerbronca/SpringToolSuite_Workspace/webstore/src/main/java/com/packt/webstore/controller/HomeController.java
+/Users/andrerbronca/SpringToolSuite_Workspace/webstore/src/main/java/com/packt/webstore/domain/repository/impl/InMemoryCustomerRepository.java
+/Users/andrerbronca/SpringToolSuite_Workspace/webstore/src/main/java/com/packt/webstore/controller/OrderController.java
+/Users/andrerbronca/SpringToolSuite_Workspace/webstore/src/main/java/com/packt/webstore/controller/CustomerController.java
+/Users/andrerbronca/SpringToolSuite_Workspace/webstore/src/main/java/com/packt/webstore/service/ProductService.java
+/Users/andrerbronca/SpringToolSuite_Workspace/webstore/src/main/java/com/packt/webstore/domain/repository/CustomerRepository.java
+/Users/andrerbronca/SpringToolSuite_Workspace/webstore/src/main/java/com/packt/webstore/service/impl/CustomerServiceImpl.java
+/Users/andrerbronca/SpringToolSuite_Workspace/webstore/src/main/java/com/packt/webstore/service/impl/ProductServiceImpl.java
+/Users/andrerbronca/SpringToolSuite_Workspace/webstore/src/main/java/com/packt/webstore/domain/Product.java
+/Users/andrerbronca/SpringToolSuite_Workspace/webstore/src/main/java/com/packt/webstore/controller/LoginController.java
+/Users/andrerbronca/SpringToolSuite_Workspace/webstore/src/main/java/com/packt/webstore/domain/repository/impl/InMemoryProductRepository.java
+/Users/andrerbronca/SpringToolSuite_Workspace/webstore/src/main/java/com/packt/webstore/controller/ProductController.java
+/Users/andrerbronca/SpringToolSuite_Workspace/webstore/src/main/java/com/packt/webstore/service/OrderService.java
+/Users/andrerbronca/SpringToolSuite_Workspace/webstore/src/main/java/com/packt/webstore/service/CustomerService.java
