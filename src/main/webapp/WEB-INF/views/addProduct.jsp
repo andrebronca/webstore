@@ -17,7 +17,10 @@
 				<h1>Products</h1>
 				<p>Add products</p>
 			</div>
-			<a href="<c:url value="/j_spring_security_logout" />" class="btn btn-danger btn-mini pull-right">logout</a>	
+			<a href="<c:url value="/j_spring_security_logout" />" class="btn btn-danger btn-mini pull-right">logout</a>
+			<div class="pull-right" style="padding-right:50px">
+				<a href="?language=en">English</a> | <a href="?language=nl">Dutch</a> | <a href="?language=br">Brasil</a>
+			</div>	
 		</div>
 	</section>
 	
@@ -35,53 +38,67 @@
 				</div>
 				
 				<div class="form-group">
-					<label class="control-label col-lg-2" for="name">Name</label>
+					<label class="control-label col-lg-2" for="name">
+						<s:message code="addProduct.form.name.label" />
+					</label>
 					<div class="col-lg-10">
 						<f:input path="name" id="name" type="text" class="form:input-large" />
 					</div>
 				</div>
 				
 				<div class="form-group">
-					<label class="control-label col-lg-2" for="unitPrice">Unit Price</label>
+					<label class="control-label col-lg-2" for="unitPrice">
+						<s:message code="addProduct.form.unitPrice.label" />
+					</label>
 					<div class="col-lg-10">
 						<f:input path="unitPrice" id="unitPrice" type="text"/>
 					</div>
 				</div>
 				
 				<div class="form-group">
-					<label class="control-label col-lg-2" for="manufacturer">Manufacturer</label>
+					<label class="control-label col-lg-2" for="manufacturer">
+						<s:message code="addProduct.form.manufacturer.label" />
+					</label>
 					<div class="col-lg-10">
 						<f:input path="manufacturer" id="manufacturer" type="text" />
 					</div>
 				</div>
 				
 				<div class="form-group">
-					<label class="control-label col-lg-2" for="category">Category</label>
+					<label class="control-label col-lg-2" for="category">
+						<s:message code="addProduct.form.category.label" />
+					</label>
 					<div class="col-lg-10">
 						<f:input path="category" id="category" type="text" />
 					</div>
 				</div>
 				
 				<div class="form-group">
-					<label class="control-label col-lg-2" for="unitsInStock">Units In Stock</label>
+					<label class="control-label col-lg-2" for="unitsInStock">
+						<s:message code="addProduct.form.unitsInStock.label" />
+					</label>
 					<div class="col-lg-10">
 						<f:input path="unitsInStock" id="unitsInStock" type="text" />
 					</div>
 				</div>
 				
 				<div class="form-group">
-					<label class="control-label col-lg-2" for="description">Description</label>
+					<label class="control-label col-lg-2" for="description">
+						<s:message code="addProduct.form.description.label" />
+					</label>
 					<div class="col-lg-10">
 						<f:textarea path="description" id="description" rows="2"/>
 					</div>
 				</div>
 				
 				<div class="form-group">
-					<label class="control-label col-lg-2" for="condition">Condition</label>
+					<label class="control-label col-lg-2" for="condition">
+						<s:message code="addProduct.form.condition.label" />
+					</label>
 					<div class="col-lg-10">
-						<f:radiobutton path="condition" value="New"/>New
-						<f:radiobutton path="condition" value="Old"/>Old
-						<f:radiobutton path="condition" value="Refurbished"/>Refurbished
+						<f:radiobutton path="condition" value="New"/> New &nbsp;&nbsp;
+						<f:radiobutton path="condition" value="Old"/> Old &nbsp;&nbsp;
+						<f:radiobutton path="condition" value="Refurbished"/> Refurbished
 					</div>
 				</div>
 				
