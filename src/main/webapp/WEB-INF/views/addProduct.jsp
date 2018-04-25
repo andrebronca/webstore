@@ -26,6 +26,7 @@
 	
 	<section class="container">
 		<f:form modelAttribute="newProduct" class="form-horizontal" enctype="multipart/form-data">
+			<f:errors path="*" cssClass="alert alert-danger" element="div" />
 			<fieldset>
 				<legend>Add new Product</legend>
 				<div class="form-group">
@@ -34,6 +35,7 @@
 					</label>
 					<div class="col-sd-10 col-md-9 col-lg-10">
 						<f:input path="productId" id="productId" type="text" class="f:input-large"/>
+						<f:errors path="productId" cssClass="text-danger" />
 					</div>
 				</div>
 				
@@ -43,6 +45,7 @@
 					</label>
 					<div class="col-lg-10">
 						<f:input path="name" id="name" type="text" class="form:input-large" />
+						<f:errors path="name" cssClass="text-danger" />
 					</div>
 				</div>
 				
@@ -52,6 +55,7 @@
 					</label>
 					<div class="col-lg-10">
 						<f:input path="unitPrice" id="unitPrice" type="text"/>
+						<f:errors path="unitPrice" cssClass="text-danger" />
 					</div>
 				</div>
 				

@@ -10,7 +10,7 @@
 		http://www.springframework.org/schema/mvc 
 		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
-	<mvc:annotation-driven enable-matrix-variables="true" />
+	<mvc:annotation-driven enable-matrix-variables="true" validator="validator" />
 	<mvc:resources location="/resources/" mapping="/resource/**"/>
 	<context:annotation-config />
 	<context:component-scan base-package="com.packt.webstore" />
@@ -71,6 +71,11 @@
 	<bean id="localeResolver"
 		class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
 		<property name="defaultLocale" value="en"></property>
+	</bean>
+	
+	<bean id="validator"
+		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<property name="validationMessageSource" ref="messageSource"></property>
 	</bean>
 	
 </beans>
