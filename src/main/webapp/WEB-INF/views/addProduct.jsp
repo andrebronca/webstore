@@ -22,7 +22,7 @@
 	</section>
 	
 	<section class="container">
-		<f:form modelAttribute="newProduct" class="form-horizontal">
+		<f:form modelAttribute="newProduct" class="form-horizontal" enctype="multipart/form-data">
 			<fieldset>
 				<legend>Add new Product</legend>
 				<div class="form-group">
@@ -69,8 +69,6 @@
 					</div>
 				</div>
 				
-				
-				
 				<div class="form-group">
 					<label class="control-label col-lg-2" for="description">Description</label>
 					<div class="col-lg-10">
@@ -78,14 +76,21 @@
 					</div>
 				</div>
 				
-				
-				
 				<div class="form-group">
 					<label class="control-label col-lg-2" for="condition">Condition</label>
 					<div class="col-lg-10">
 						<f:radiobutton path="condition" value="New"/>New
 						<f:radiobutton path="condition" value="Old"/>Old
 						<f:radiobutton path="condition" value="Refurbished"/>Refurbished
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="control-label col-lg-2" for="productImage">
+						<s:message code="addProduct.form.productImage.label" />
+					</label>
+					<div class="col-lg-10">
+						<f:input id="productImage" path="productImage" type="file" class="btn btn-default" />
 					</div>
 				</div>
 				

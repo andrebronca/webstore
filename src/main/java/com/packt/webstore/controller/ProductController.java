@@ -1,10 +1,13 @@
 package com.packt.webstore.controller;
 
+import java.io.File;
 //import java.sql.Date;
 //import java.text.DateFormat;
 //import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -20,6 +23,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.packt.webstore.domain.Product;
@@ -90,12 +94,38 @@ public class ProductController {
 	
 	@RequestMapping(value="/add", method = RequestMethod.POST)
 	public String processAddNewProductForm(@ModelAttribute("newProduct") Product newProduct, 
-			BindingResult result) {
+			BindingResult result, HttpServletRequest request) {
 		String[] supressedFields = result.getSuppressedFields();	//fields in: initialiseBinder()
 		if (supressedFields.length > 0) {
 			throw new RuntimeException("Attempting to bind disallowed fields: "
 					+ StringUtils.arrayToCommaDelimitedString(supressedFields));
 		}
+		
+		MultipartFile productImage = newProduct.getProductImage();
+		String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+		
+		if (productImage != null && !productImage.isEmpty()) {
+			/*
+			 * pathImagem: /Users/andrerbronca/SpringToolSuite_Workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps
+			 * /webstore/resources\images\8.png
+			 * 
+			 * pathImagem: /Users/andrerbronca/SpringToolSuite_Workspace/.metadata/
+			 * .plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps
+			 * /webstore/resources/images/7.png
+
+			 */
+			
+			String sep = File.separator;
+			String name_image = Product.PREFIX_IMAGE_NAME + newProduct.getProductId() +".png";
+			String pathOfImage = rootDirectory + sep +"resources"+ sep +"images"+ sep + name_image;
+			System.out.println("pathImagem: "+ pathOfImage);
+			try {
+				productImage.transferTo(new File( pathOfImage ));
+			} catch (Exception e) {
+				throw new RuntimeException("Product Image saving failed: ", e);
+			}
+		}
+		
 		productService.addProduct(newProduct);
 		return "redirect:/products";
 	}
@@ -105,6 +135,9 @@ public class ProductController {
 //		DateFormat dateFormat = new SimpleDateFormat("MMM d, YYYY");
 //		CustomDateEditor orderDateEditor = new CustomDateEditor(dateFormat, true);
 //		binder.registerCustomEditor(Date.class, orderDateEditor);
+		//o que não é negado é permitido, deixar as duas como exemplo. Se não der problema.
 		binder.setDisallowedFields("unitsInOrder", "discontinued");
+//		binder.setAllowedFields("productId", "name", "unitPrice", "description", "manufacturer", 
+//				"category", "unitsInStock", "condition", "productImage");
 	}
 }
