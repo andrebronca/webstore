@@ -147,8 +147,9 @@ public class ProductController {
 //		binder.registerCustomEditor(Date.class, orderDateEditor);
 		//o que não é negado é permitido, deixar as duas como exemplo. Se não der problema.
 		binder.setDisallowedFields("unitsInOrder", "discontinued");
+		//obs.: language é o parametro da tradução
 //		binder.setAllowedFields("productId", "name", "unitPrice", "description", "manufacturer", 
-//				"category", "unitsInStock", "condition", "productImage");
+//				"category", "unitsInStock", "condition", "productImage","language");
 	}
 	
 	@ExceptionHandler(ProductNotFoundException.class)
