@@ -10,6 +10,8 @@ import javax.validation.constraints.Size;
 
 import org.springframework.web.multipart.MultipartFile;
 
+//stop lecture in page 353. I'm reading now in page 380
+
 public class Product {
 	
 	@Pattern(regexp = "P[0-9]+", message = "{Pattern.Product.productId.validation}")
