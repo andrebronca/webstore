@@ -7,6 +7,8 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+		<script src="/webstore/resource/js/controllers.js"></script>
 		<title>Product</title>
 	</head>
 <body>
@@ -18,7 +20,7 @@
 		</div>
 	</section>
 	
-	<section class="container">
+	<section class="container" ng-app="cartApp">
 		<div class="row">
 			<div class="col-md-5">
 				<img src='<c:url value="/resource/images/prod_cod_${product.productId}.png" />' alt="imagem" style="width:100%" />
@@ -33,8 +35,8 @@
 				<p><strong>Category: </strong>${ product.category }</p>
 				<p><strong>Available units in stock: </strong>${ product.unitsInStock }</p>
 				<h4>${ product.unitPrice } USD</h4>
-				<p>
-					<a href="#" class="btn btn-warning btn-large">
+				<p ng-controller="cartCtrl">
+					<a href='<s:url value="/cart" />' class="btn btn-warning btn-large" ng-click="addToCart('${product.productId}')">
 						<span class="glyphicon-shopping-cart glyphicon"></span>
 						Order now
 					</a>
