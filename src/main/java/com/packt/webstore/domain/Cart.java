@@ -7,11 +7,7 @@ import java.util.Map;
 
 public class Cart implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = -5548078041095366114L;
 	private String cartId;
 	private Map<String, CartItem> cartItems;
 	private BigDecimal grandTotal;

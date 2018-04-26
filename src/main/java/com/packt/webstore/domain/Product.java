@@ -1,5 +1,6 @@
 package com.packt.webstore.domain;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 import javax.validation.constraints.Digits;
@@ -14,7 +15,9 @@ import com.packt.webstore.validator.ProductId;
 
 //stop lecture in page 353. I'm reading now in page 380
 
-public class Product {
+public class Product implements Serializable{
+	
+	private static final long serialVersionUID = 3779971574801348772L;
 	
 	@Pattern(regexp = "P[0-9]+", message = "{Pattern.Product.productId.validation}")
 	@ProductId
