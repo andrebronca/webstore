@@ -4,11 +4,13 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.packt.webstore.domain.Product;
 import com.packt.webstore.exception.ProductNotFoundException;
 import com.packt.webstore.service.ProductService;
 
+@Component
 public class ProductIdValidator implements ConstraintValidator<ProductId, String> {
 	
 	@Autowired
