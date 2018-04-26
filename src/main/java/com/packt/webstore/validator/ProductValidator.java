@@ -14,7 +14,7 @@ import com.packt.webstore.domain.Product;
 public class ProductValidator implements Validator {
 
 	@Autowired
-	private javax.validation.Validator beanValidator;
+	private javax.validation.Validator beanValidator;	//permite usar spring validator e bean validator
 	
 	private Set<Validator> springValidators;
 	
