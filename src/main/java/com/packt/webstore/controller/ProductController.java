@@ -152,7 +152,7 @@ public class ProductController {
 	
 	@InitBinder
 	public void initialiseBinder(WebDataBinder binder) {
-		binder.setValidator(unitsInStockValidator);
+		//binder.setValidator(unitsInStockValidator);
 //		DateFormat dateFormat = new SimpleDateFormat("MMM d, YYYY");
 //		CustomDateEditor orderDateEditor = new CustomDateEditor(dateFormat, true);
 //		binder.registerCustomEditor(Date.class, orderDateEditor);
