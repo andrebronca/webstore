@@ -86,4 +86,7 @@
 		</property>
 	</bean>
 	
+	<bean id="unitsInStockValidator" class="com.packt.webstore.validator.UnitsInStockValidator" />
+	
+	
 </beans>

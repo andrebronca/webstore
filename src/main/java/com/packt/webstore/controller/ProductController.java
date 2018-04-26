@@ -32,6 +32,7 @@ import com.packt.webstore.domain.Product;
 import com.packt.webstore.exception.NoProductsFoundUnderCategoryException;
 import com.packt.webstore.exception.ProductNotFoundException;
 import com.packt.webstore.service.ProductService;
+import com.packt.webstore.validator.ProductValidator;
 import com.packt.webstore.validator.UnitsInStockValidator;
 
 @RequestMapping("/products")
@@ -42,7 +43,7 @@ public class ProductController {
 	private ProductService productService;
 	
 	@Autowired
-	private UnitsInStockValidator unitsInStockValidator;
+	private ProductValidator productValidator;
 
 	@RequestMapping
 	public String list(Model model) {
@@ -152,7 +153,7 @@ public class ProductController {
 	
 	@InitBinder
 	public void initialiseBinder(WebDataBinder binder) {
-		//binder.setValidator(unitsInStockValidator);
+		binder.setValidator(productValidator);
 //		DateFormat dateFormat = new SimpleDateFormat("MMM d, YYYY");
 //		CustomDateEditor orderDateEditor = new CustomDateEditor(dateFormat, true);
 //		binder.registerCustomEditor(Date.class, orderDateEditor);
