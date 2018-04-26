@@ -1,14 +1,19 @@
 package com.packt.webstore.domain;
 
-public class Customer {
+import java.io.Serializable;
+
+public class Customer implements Serializable {
+	
+	private static final long serialVersionUID = 3553628143863456452L;
 	
 	private String customerId;
 	private String name;
-	private String address;
-	private String noOfOrderMade;	//falta informação sobre o tipo desse campo
+	private Address billingAddress;
+	private String phoneNumber;
 	
 	public Customer() {
 		super();
+		this.billingAddress = new Address();
 	}
 
 	public Customer(String customerId, String name) {
@@ -33,20 +38,24 @@ public class Customer {
 		this.name = name;
 	}
 
-	public String getAddress() {
-		return address;
+	public Address getBillingAddress() {
+		return billingAddress;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setBillingAddress(Address billingAddress) {
+		this.billingAddress = billingAddress;
 	}
 
-	public String getNoOfOrderMade() {
-		return noOfOrderMade;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public void setNoOfOrderMade(String noOfOrderMade) {
-		this.noOfOrderMade = noOfOrderMade;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	@Override
@@ -76,8 +85,10 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "Customer [customerId=" + customerId + ", name=" + name + "]";
+		return "Customer [customerId=" + customerId + ", name=" + name + ", billingAddress=" + billingAddress
+				+ ", phoneNumber=" + phoneNumber + "]";
 	}
+	
 	
 	
 }
