@@ -19,31 +19,31 @@ public class InMemoryProductRepository implements ProductRepository {
 	private List<Product> listOfProducts = new ArrayList<Product>();
 	
 	public InMemoryProductRepository() {
-		Product p1 = new Product("1", "iPhone 5s", new BigDecimal(500));
+		Product p1 = new Product("P1", "iPhone 5s", new BigDecimal(500));
 		p1.setDescription("Apple iPhone 5s smartphone with 4.00-inch...");
 		p1.setCategory("Smarth Phone");
 		p1.setManufacturer("Apple");
 		p1.setUnitsInStock(1000);
 		
-		Product p2 = new Product("2", "iPhone 6s", new BigDecimal(500));
+		Product p2 = new Product("P2", "iPhone 6s", new BigDecimal(500));
 		p2.setDescription("Apple iPhone 6s smartphone with 5.50-inch...");
 		p2.setCategory("Smarth Phone");
 		p2.setManufacturer("Apple");
 		p2.setUnitsInStock(900);
 		
-		Product p3 = new Product("3", "Dell Inspirion", new BigDecimal(700));
+		Product p3 = new Product("P3", "Dell Inspirion", new BigDecimal(700));
 		p3.setDescription("Dell Inspiron 14-inch laptop (Black)...");
 		p3.setCategory("Laptop");
 		p3.setManufacturer("Dell");
 		p3.setUnitsInStock(950);
 		
-		Product p4 = new Product("4", "Dell Inspirion Ultra", new BigDecimal(700));
+		Product p4 = new Product("P4", "Dell Inspirion Ultra", new BigDecimal(700));
 		p4.setDescription("Dell Inspiron 15-inch laptop (Black)...");
 		p4.setCategory("Laptop");
 		p4.setManufacturer("Dell");
 		p4.setUnitsInStock(650);
 		
-		Product p5 = new Product("5", "Nexus 7", new BigDecimal(300));
+		Product p5 = new Product("P5", "Nexus 7", new BigDecimal(300));
 		p5.setDescription("Google Nexus 7 is the lightest 7 inch...");
 		p5.setCategory("Tablet");
 		p5.setManufacturer("Google");
