@@ -32,6 +32,7 @@ public class CartRestController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public @ResponseBody Cart create(@RequestBody Cart cart) {
+		System.out.println("LOG SAVE REST CART: "+ cart);
 		return cartService.create(cart);
 	}
 	
@@ -95,4 +96,44 @@ public class CartRestController {
 	@ExceptionHandler(Exception.class)
 	@ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR, reason = "Internal server error")
 	public void handleSErverErrors(Exception ex) {}
+	
+	/*
+	 *	localhost:8888/webstsore/rest/cart				POST	create new cart
+	 *	localhost:8888/webstsore/rest/cart/1234			GET		retrieves cart with the ID 1234
+	 *	localhost:8888/webstsore/rest/cart/1234			PUT		updates cart with the ID 1234
+	 *	localhost:8888/webstsore/rest/cart/1234			DELETE	deletes cart with the id 1234
+	 *	localhost:8888/webstsore/rest/cart/add/1234		PUT		adiciona ao carrinho ou incrementa a quantidade
+	 *	localhost:8888/webstsore/rest/cart/remove/1234	PUT		remove do carrinho
+	 */
+	
+	/* json test com postman : POST 
+	 * 
+{
+	"cartId" : "1234",
+	"cartItems" : {
+		"P1234" : {
+			"product" : {
+				"productId" : "P1234",
+				"name" : "iPhone 5s",
+				"unitPrice" : 500,
+				"description" : "Apple iPhone 5s ...",
+				"manufacturer" : "Apple",
+				"category" : "Smart Phone",
+				"unitsInStock" : 1000,
+				"unitsInOrder" : 0,
+				"discontinued" : false,
+				"condition" : "NEW"
+			},
+			"quantity" : 1,
+			"totalPrice" : 500
+		}
+	},
+	"grandTotal" : 500
 }
+	 * 
+	 */
+	
+	
+}
+
+

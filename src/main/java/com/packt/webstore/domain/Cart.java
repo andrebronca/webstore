@@ -94,5 +94,12 @@ public class Cart {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Cart [cartId=" + cartId + ", cartItems=" + cartItems + ", grandTotal=" + grandTotal + "]";
+	}
+	
+	
 	
 }

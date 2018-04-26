@@ -72,6 +72,11 @@ public class CartItem {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "CartItem [product=" + product + ", quantity=" + quantity + ", totalPrice=" + totalPrice + "]";
+	}
 	
 	
 	
