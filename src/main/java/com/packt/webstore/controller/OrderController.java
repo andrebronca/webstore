@@ -14,7 +14,9 @@ public class OrderController {
 	
 	@RequestMapping("/order/1/2")
 	public String process() {
-		orderService.processOrder("1", 2);
+//		orderService.processOrder("1", 2);
+//		
 		return "redirect:/products";
+
 	}
 }
